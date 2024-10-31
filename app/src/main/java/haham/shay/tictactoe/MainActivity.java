@@ -21,45 +21,46 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    private void onNewGame(){
+    private void onNewGame() {
         board = new String[3][3];
-        for(int row=0;row<3;row++)
-            for(int col=0;col<3;col++)
-                board [row][col]= new String();
-        turn  = "x";
+        for (int row = 0; row < 3; row++)
+            for (int col = 0; col < 3; col++)
+                board[row][col] = new String();
+        turn = "x";
         count = 0;
     }
-    @SuppressLint("NonConstantResourceId")
-    private void onButtonClicked(View view){
-        if ( view.getId()) {
-            case R.id.btn_00:
-                handleClick(0, 0, R.id.btn_00);
-                break;
-            case R.id.btn_01:
-                handleClick(0, 1, R.id.btn_01);
-                break;
-            case R.id.btn_02:
-                handleClick(0, 2, R.id.btn_02);
-                break;
-            case R.id.btn_10:
-                handleClick(1, 0, R.id.btn_10);
-                break;
-            case R.id.btn_11:
-                handleClick(1, 1, R.id.btn_11);
-                break;
-            case R.id.btn_12:
-                handleClick(1, 2, R.id.btn_12);
-                break;
-            case R.id.btn_20:
-                handleClick(2, 0, R.id.btn_20);
-                break;
-            case R.id.btn_21:
-                handleClick(2, 1, R.id.btn_21);
-                break;
-            case R.id.btn_22:
-                handleClick(2, 2, R.id.btn_22);
-                break;
+
+
+    void onButtonClick(View view)
+    {
+        if (view.getId() == R.id.btn_00) {
+            handleClick(0, 0, R.id.btn_00);
         }
+        if (view.getId() == R.id.btn_01){
+            handleClick(0, 1, R.id.btn_01);
+        }
+        if(view.getId() == R.id.btn_02) {
+            handleClick(0, 2, R.id.btn_02);
+        }
+        if(view.getId() == R.id.btn_10) {
+            handleClick(1, 0, R.id.btn_10);
+        }
+        if(view.getId() == R.id.btn_11) {
+            handleClick(1, 1, R.id.btn_11);
+        }
+        if(view.getId() == R.id.btn_12) {
+            handleClick(1, 2, R.id.btn_12);
+        }
+        if(view.getId() == R.id.btn_20) {
+            handleClick(2, 0, R.id.btn_20);
+        }
+        if(view.getId() == R.id.btn_21) {
+            handleClick(2, 1, R.id.btn_21);
+        }
+        if(view.getId() == R.id.btn_22){
+            handleClick(2, 2, R.id.btn_22);
+        }
+
     }
     private void handleClick(int row, int col, int id) {
         if (board[row][col].equals("")) {
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     Boolean isWinner() {
-        return False;
+        return false;
     }
     void endGame(String s) {
     }
