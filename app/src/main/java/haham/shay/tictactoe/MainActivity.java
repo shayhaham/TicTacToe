@@ -1,11 +1,13 @@
 package haham.shay.tictactoe;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -87,4 +89,28 @@ public class MainActivity extends AppCompatActivity {
             turn = (turn.equals("X") ? "O" : "X");
         }
     }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("More Info");
+        String msg = "This is the message body";
+        builder.setMessage(msg);
+        builder.setPositiveButton("EXIT", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // יציאה מהפעילות (Activity)
+                finish();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // טיפול במקרה של ביטול (Cancel)
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.show();
+    }
+
+
 }
